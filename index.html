@@ -13,7 +13,7 @@
 <body>
     <style>
         body {
-            transition: 1000ms ease;
+            transition: 5000ms ease;
         }
         h3{
             color: black;
@@ -28,7 +28,7 @@
             text-align: center;
         }
     </style>
-    <div class="container" style="width: 100%; height:100%;">
+    <div id="frame" class="container" style="width: 100%; height:100%;">
         <div class="row" style="padding-top: 20%;">
             <div class="col-sm-2">
             </div>
@@ -48,16 +48,26 @@
         var body = $('body');
         var colors = ['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'];
         var currentIndex = 0;
-        setInterval(function () {
-        body.css({
-            backgroundColor: colors[currentIndex]
-        });
-        if (!colors[currentIndex]) {
-            currentIndex = 0;
-        } else {
-            currentIndex++;
-        }
-        }, 1000);
+        var paused=true;
+        $('#frame').click(function(){
+            if (paused==true){
+                interval = setInterval(function () {
+                body.css({
+                    backgroundColor: colors[currentIndex]
+                });
+                if (!colors[currentIndex]) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex++;
+                }
+                }, 3000);
+                paused=false;
+            }else{
+                clearInterval(interval);
+                paused=true;
+            }
+        })
+        
     </script>
     <script>
         $.get('secret.txt', function(data){
