@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CTF-Dev-Hack</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+    <style>
+        body {
+            transition: 1000ms ease;
+        }
+        h3{
+            color: black;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        span{
+            font-size: 36px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        #hint{
+            text-align: center;
+        }
+    </style>
+    <div class="container" style="width: 100%; height:100%;">
+        <div class="row" style="padding-top: 20%;">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-8">
+                <h3>Welcome to CTF-Dev-Hack</h3>
+                <div id="hint">
+                    <span>Hint: </span>
+                    <span id="secret"></span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+    </div>
+    <script>
+        var body = $('body');
+        var colors = ['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'];
+        var currentIndex = 0;
+        setInterval(function () {
+        body.css({
+            backgroundColor: colors[currentIndex]
+        });
+        if (!colors[currentIndex]) {
+            currentIndex = 0;
+        } else {
+            currentIndex++;
+        }
+        }, 1000);
+    </script>
+</body>
+</html>
