@@ -21,7 +21,7 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
         span{
-            font-size: 36px;
+            font-size: 46px;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
         #hint{
@@ -34,6 +34,7 @@
             </div>
             <div class="col-sm-8">
                 <h3>Welcome to CTF-Dev-Hack</h3>
+                <hr style="width: 40%; border-top: 4px solid gray;">
                 <div id="hint">
                     <span>Hint: </span>
                     <span id="secret"></span>
@@ -57,6 +58,11 @@
             currentIndex++;
         }
         }, 1000);
+    </script>
+    <script>
+        $.get('secret.txt', function(data){
+            $('#secret').append(data);
+        });
     </script>
 </body>
 </html>
